@@ -1,0 +1,34 @@
+## node-multi-channel-pubsub
+
+Bundled pub/sub node libraries with a simple server.
+
+## Installation instructions for example
+ This may seem like a lot of steps, but it's really not that bad.
+
+ 1. Install node.js 0.2.3
+ 2. Install Redis
+ 3. Install Rails 2.3.8
+ 4. Create your database in the rails config/database.yml file
+ 5. Run Rails migrations via rake db:migrate
+
+## Testing the application
+ 1. Start Redis via the 'redis-server' command
+ 2. Start node from the example root calling ./start_node
+ 3. Launch the Rails application via 'rails server'
+ 4. Create a new game by navigating to <server>/games
+ 5. Open a client by navigating to <server>/games/:id/real_time
+ 6. Add data to the game and watch things happen in real time
+
+## Packages used for example
+
+ Rails: 2.3.8
+ Redis: 2.0.3
+ Node.js: 0.2.3
+
+ redis-client: somewhere around 3.5.0
+    commit  30e9f41e7f62137ba47a
+    tree    80d16c7ab78b87d4bde6
+    parent  c6c1ef9490f78200047b 
+
+ socket.io-node: 0.6.0
+

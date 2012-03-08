@@ -1,0 +1,41 @@
+<% content_for :head do -%>
+    <script src="/javascripts/json.js"></script> <!-- for ie -->
+    <script src="/socket.io/socket.io.js"></script>
+    <% javascript_tag do -%>
+        var socket = new io.Socket(null, {port: 8080, rememberTransport: false});
+
+        socket.connect();
+
+        socket.on('connect', function(obj) {
+            socket.send(Object.toJSON({ subscribeTo: "<%= "games:#{@game.id}" %>"}));
+        });
+
+        socket.on('message', function(obj){
+            if (obj['save']) {
+                var div = document.createElement('div');
+                var at_bat = obj['save']['at_bat'];
+                var message = "At bat #" + at_bat.position + " &mdash; " + at_bat.pitches.join(",");
+                var position = parseInt(at_bat.position);
+
+                div.addClassName("at_bat");
+                div.addClassName((position%2 == 0) ? "even" : "odd");
+                div.id = "at_bat_" + at_bat.id;
+                div.insert(message);
+
+                if ($(div.id))
+                    $('at_bats').down('#' + div.id).replace(div);
+                else
+                    $('at_bats').insert({top: div});
+
+                new Effect.Highlight(div.id);
+            }else{
+                $('at_bat_' + obj['delete']['at_bat'].id).remove();
+            }
+        });
+    <% end -%>
+<% end -%>
+<h3>Game log for <%= h @game.name %></h3>
+
+<div id='at_bats'>
+    <%= render :partial => 'at_bats/at_bat', :collection => @game.at_bats %>
+</div>

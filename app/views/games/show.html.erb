@@ -1,0 +1,39 @@
+<% content_for :head do -%>
+    <% javascript_tag do -%>
+        $(document).observe("dom:loaded", function() {
+            
+        });
+
+        function show_edit(at_bat) {
+            var at_bat_wrapper = $(at_bat);
+            at_bat_wrapper.down('.show_at_bat').hide();
+            at_bat_wrapper.down('.edit_at_bat').show();
+        }
+    <% end -%>
+<% end -%>
+
+<h1><%= h @game.name %> data entry</h1>
+<p>
+  <b>Name:</b>
+  <%=h @game.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @game.description %>
+</p>
+
+<%= link_to 'Edit game', edit_game_path(@game) %> |
+<%= link_to 'Back', games_path %><br/>
+
+<div class='manage_at_bats'>
+    <strong>New at bat</strong><br/>
+    <div>
+        Pitches <small>(comma separated)</small>:<br/>
+        <%= render :partial => 'at_bats/form' %>
+    </div>
+
+    <div id='at_bats'>
+        <%= render :partial => 'at_bats/at_bat', :collection => @game.at_bats %>
+    </div>
+</div>

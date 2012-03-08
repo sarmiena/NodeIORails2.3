@@ -1,0 +1,14 @@
+<div id='at_bat_<%= at_bat.id %>' class='at_bat <%= at_bat.position.even? ? 'even' : 'odd' %>'>
+    At bat #<%= at_bat.position %> &mdash; 
+    <div class='show_at_bat'><%= h at_bat.pitches.join(",") %></div>
+    <%= hidden_field_tag :version, at_bat.version, :id => "at_bat_version_#{at_bat.id}" %>
+    <% if @admin -%>
+        <div class='edit_at_bat' style='display:none'>
+            <%= render :partial => 'at_bats/form', :locals => { :at_bat => at_bat } %>
+        </div>
+        <span class='at_bat_action'>
+            <%= link_to(image_tag('/images/delete.png'), [@game, at_bat], :method => :delete, :confirm => "Delete this at bat?") %>
+        </span>
+        <%= image_tag '/images/pencil.png', :class => 'at_bat_action', :onclick => "show_edit('at_bat_#{at_bat.id}')"%>
+    <% end -%>
+</div>

@@ -1,0 +1,112 @@
+body { background-color: #fff; color: #333; }
+
+body, p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size:   13px;
+  line-height: 18px;
+}
+
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+a { color: #000; }
+a:visited { color: #666; }
+a:hover { color: #fff; background-color:#000; }
+
+.fieldWithErrors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+#errorExplanation {
+  width: 400px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#errorExplanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  background-color: #c00;
+  color: #fff;
+}
+
+#errorExplanation p {
+  color: #333;
+  margin-bottom: 0;
+  padding: 5px;
+}
+
+#errorExplanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+
+a._add_at_bat {
+    cursor: pointer;
+    background: url(/images/add.png) scroll no-repeat left center;
+    padding-left: 20px;
+}
+
+a._add_at_bat:hover {
+    color: #000;
+}
+
+span._add_at_bat_wrapper:hover {
+    background-color: #eef5ee;
+}
+
+span._add_at_bat_wrapper {
+    padding: 3px;
+}
+
+div#at_bats {
+    margin-top: 10px; 
+}
+
+div.at_bat.odd {
+    background-color: #eef5fe; 
+}
+
+div.at_bat {
+    padding: 5px 2px;
+}
+
+div.manage_at_bats {
+    margin-top: 15px;
+    padding: 5px;
+}
+
+div.show_at_bat, 
+div.edit_at_bat,
+div.edit_at_bat form{
+    display: inline;
+}
+
+
+.at_bat_action:hover {
+    background-color: #000;
+}
+
+img.at_bat_action {
+    cursor: pointer;
+}
+
+.at_bat_action {
+    float: right;
+    margin-right: 3px;
+}
+.at_bat_action img {
+    text-decoration: none;
+    border: none;
+}

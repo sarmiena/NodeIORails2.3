@@ -1,0 +1,24 @@
+<h1>Editing at_bat</h1>
+
+<% form_for(@at_bat) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :position %><br />
+    <%= f.text_field :position %>
+  </p>
+  <p>
+    <%= f.label :version %><br />
+    <%= f.text_field :version %>
+  </p>
+  <p>
+    <%= f.label :pitches %><br />
+    <%= f.text_field :pitches %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @at_bat %> |
+<%= link_to 'Back', at_bats_path %>

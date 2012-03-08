@@ -1,0 +1,24 @@
+<h1>Listing at_bats</h1>
+
+<table>
+  <tr>
+    <th>Position</th>
+    <th>Version</th>
+    <th>Pitches</th>
+  </tr>
+
+<% @at_bats.each do |at_bat| %>
+  <tr>
+    <td><%=h at_bat.position %></td>
+    <td><%=h at_bat.version %></td>
+    <td><%=h at_bat.pitches %></td>
+    <td><%= link_to 'Show', at_bat %></td>
+    <td><%= link_to 'Edit', edit_at_bat_path(at_bat) %></td>
+    <td><%= link_to 'Destroy', at_bat, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New at_bat', new_at_bat_path %>

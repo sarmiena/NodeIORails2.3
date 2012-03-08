@@ -1,0 +1,18 @@
+<p>
+  <b>Position:</b>
+  <%=h @at_bat.position %>
+</p>
+
+<p>
+  <b>Version:</b>
+  <%=h @at_bat.version %>
+</p>
+
+<p>
+  <b>Pitches:</b>
+  <%=h @at_bat.pitches %>
+</p>
+
+
+<%= link_to 'Edit', edit_at_bat_path(@at_bat) %> |
+<%= link_to 'Back', at_bats_path %>
